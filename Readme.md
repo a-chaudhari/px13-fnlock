@@ -13,7 +13,7 @@ Note: I've only tested this on Arch 6.15.  In theory, it should work just as fin
 ## Usage
 1. syntax is `sudo ./px13-fnlock <hidraw path>  <on|off>` to disable or enable the fn lock
    * example: `sudo ./px13-fnlock /dev/hidraw1 on`
-2. settings don't save across reboots, so you'll have to run this again after each boot.
+2. settings don't save across reboots, so you'll have to run this again after each boot (or use the service file).
 
 ## Auto apply on boot
 1. copy the binary to /usr/local/bin or somewhere else you prefer
