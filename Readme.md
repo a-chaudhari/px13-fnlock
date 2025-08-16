@@ -15,6 +15,12 @@ Note: I've only tested this on Arch 6.15.  In theory, it should work just as fin
    * example: `sudo ./px13-fnlock /dev/hidraw1 on`
 2. settings don't save across reboots, so you'll have to run this again after each boot.
 
+## Auto apply on boot
+1. copy the binary to /usr/local/bin or somewhere else you prefer
+2. copy the service file to /etc/systemd/system
+3. edit the service file to point to your binary and hidraw path
+4. enable the service with `sudo systemctl enable --now px13-fnlock.service`
+
 ## Tech Details
 This was discovered by reading the hid feature status from windows after using the OEM driver to enable/disable fn lock. 
 
@@ -27,7 +33,7 @@ PID: 0x19B6
 Report ID: 0x5a
 
 ## TODO (maybe)
-- [ ] Add a systemd service to run this on boot
+- [x] Add a systemd service to run this on boot
 - [ ] Persist the mode across reboots
 - [ ] Enumerate hid devices and programatically select hidraw path
 - [ ] Submit a patch to hid-asus to support the Fn+Esc key combo (and the other missing ones)

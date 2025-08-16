@@ -1,0 +1,12 @@
+[Unit]
+Description=px13 fn lock setting manager
+After=sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/px13-fnlock /dev/hidraw1 on
+TimeoutSec=5
+
+[Install]
+WantedBy=sleep.target
+WantedBy=default.target
