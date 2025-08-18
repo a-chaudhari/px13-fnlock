@@ -5,14 +5,15 @@ Note: I've only tested this on Arch 6.15.  In theory, it should work just as fin
 
 ## Install
 1. make sure your distros `linux-headers` and general development packages are installed ("make", "gcc", etc...)
-2. verify your hidraw path and update the code.  It's /dev/hidraw1 for me.  
-   * `udevinfo /dev/hidraw0` will give info. try each number
-   * look for the string `0B05:19B6.0002` in the DEVPATH line.
 3. run `make` in the root directory of this repository to build the tool
 
 ## Usage
 1. syntax is `sudo ./px13-fnlock <hidraw path>  <on|off>` to disable or enable the fn lock
    * example: `sudo ./px13-fnlock /dev/hidraw1 on`
+2. verify your hidraw path and update the command.  
+   * It's `/dev/hidraw1` for me. yours may vary
+   * `udevinfo /dev/hidraw0` will print useful info. try each number
+   * look for the string `0B05:19B6.0002` in the DEVPATH line.
 2. settings don't save across reboots, so you'll have to run this again after each boot (or use the service file).
 
 ## Auto apply on boot
